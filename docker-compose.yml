@@ -1,0 +1,12 @@
+version: '3'
+services:
+  postgres:
+    image: "postgres:9.5"
+    volumes:
+      - ./:/data
+      - pgdata:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_DB: test
+volumes:
+  pgdata:
